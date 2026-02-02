@@ -17,12 +17,12 @@ A modern, responsive weather application built with React and Vite that allows u
 - **React 18** - UI library with functional components and hooks
 - **TypeScript** - Type safety and better developer experience
 - **Vite** - Fast build tool and development server
-- **OpenWeatherMap API** - Weather data source
+- **Open-Meteo API** - Free weather data source (no API key required!)
 
 ## Prerequisites
 
 - Node.js 16+ and npm/yarn/pnpm
-- OpenWeatherMap API key (free at https://openweathermap.org/api)
+- No API key needed! This app uses the free Open-Meteo API
 
 ## Setup Instructions
 
@@ -38,30 +38,15 @@ cd Jims_Weather_App
 npm install
 ```
 
-### 3. Get Your OpenWeatherMap API Key
-
-1. Go to [https://openweathermap.org/api](https://openweathermap.org/api)
-2. Sign up for a free account
-3. Navigate to API keys in your account dashboard
-4. Copy your API key
-
-### 4. Set Up Environment Variables
-
-Create a `.env` file in the project root:
-
-```bash
-VITE_OPENWEATHER_API_KEY=your_actual_api_key_here
-```
-
-**Important**: Never commit your `.env` file to version control. The `.env.example` file shows the required format without exposing secrets.
-
-### 5. Run the Development Server
+### 3. Run the Development Server
 
 ```bash
 npm run dev
 ```
 
 The app will be available at `http://localhost:5173`
+
+That's it! No API key setup needed.
 
 ## Usage
 
@@ -104,11 +89,15 @@ Jims_Weather_App/
 
 ## API Details
 
-This app uses the OpenWeatherMap Current Weather API:
+This app uses the free Open-Meteo Weather API:
 
-- **Endpoint**: `https://api.openweathermap.org/data/2.5/weather`
-- **Parameters**: `q` (city name), `units` (metric/imperial), `appid` (API key)
-- **Rate Limit**: Free tier allows up to 60 calls/minute, 1,000,000 calls/month
+- **Geocoding API**: `https://geocoding-api.open-meteo.com/v1/search` - converts city names to coordinates
+- **Forecast API**: `https://api.open-meteo.com/v1/forecast` - fetches current weather data
+- **No API Key Required**: Completely free for non-commercial use
+- **Rate Limit**: Generous limits for non-commercial applications
+- **Coverage**: Global weather data from national weather services
+
+Learn more at [https://open-meteo.com/](https://open-meteo.com/)
 
 ## Architecture Decisions
 
@@ -156,12 +145,8 @@ Here are potential enhancements for future versions:
 
 ## Troubleshooting
 
-### API Key Issues
-- **Error: "Missing Vite env var"**: Make sure your `.env` file is in the project root
-- **Error: "401 Unauthorized"**: Your API key is invalid or expired
-- **Rate Limit Exceeded**: You've hit the API rate limit - wait a bit before retrying
-
 ### Common Issues
+- **City not found**: Make sure you're entering a valid city name
 - **Module not found**: Run `npm install` to ensure all dependencies are installed
 - **Port already in use**: Vite will automatically find an available port
 - **Build errors**: Ensure TypeScript and ESLint are installed correctly

@@ -9,14 +9,16 @@ export const UnitToggle = ({ unitSystem, onUnitChange }: UnitToggleProps) => {
   return (
     <div className="unit-toggle">
       <button
-        className={unitSystem === 'metric' ? 'active' : ''}
+        type="button"
+        className={`unit-toggle__button ${unitSystem === 'metric' ? 'active' : ''}`}
         onClick={() => onUnitChange('metric')}
         aria-pressed={unitSystem === 'metric'}
       >
         °C
       </button>
       <button
-        className={unitSystem === 'imperial' ? 'active' : ''}
+        type="button"
+        className={`unit-toggle__button ${unitSystem === 'imperial' ? 'active' : ''}`}
         onClick={() => onUnitChange('imperial')}
         aria-pressed={unitSystem === 'imperial'}
       >

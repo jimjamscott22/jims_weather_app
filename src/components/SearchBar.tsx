@@ -18,11 +18,14 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
       <input
         type="text"
         value={query}
-        placeholder="Enter city name…"
+        placeholder="Enter city name"
         onChange={(e) => setQuery(e.target.value)}
         aria-label="City name"
+        className="search-bar__input"
       />
-      <button type="submit">Search</button>
+      <button type="submit" className="search-bar__button">
+        Search
+      </button>
     </form>
   );
 };

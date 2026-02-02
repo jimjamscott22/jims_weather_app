@@ -39,15 +39,24 @@ export const App = () => {
 
   return (
     <div className="app">
-      <h1>Weather App</h1>
-      <UnitToggle unitSystem={unitSystem} onUnitChange={handleUnitChange} />
-      <SearchBar onSearch={handleSearch} />
+      <header className="app__header">
+        <p className="app__eyebrow">Insert City</p>
+        <h1 className="app__title">Jim&apos;s Weather Arcade</h1>
+        <p className="app__subtitle">High-score forecasts, no quarters required.</p>
+      </header>
 
-      {loading && <Loader />}
+      <div className="app__controls">
+        <UnitToggle unitSystem={unitSystem} onUnitChange={handleUnitChange} />
+        <SearchBar onSearch={handleSearch} />
+      </div>
 
-      {error && <p className="error">{error}</p>}
+      <div className="app__content">
+        {loading && <Loader />}
 
-      {weather && <WeatherCard data={weather} unitSystem={unitSystem} />}
+        {error && <p className="error">{error}</p>}
+
+        {weather && <WeatherCard data={weather} unitSystem={unitSystem} />}
+      </div>
     </div>
   );
 };
