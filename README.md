@@ -21,7 +21,7 @@ A modern, responsive weather application built with React and Vite that allows u
 
 ## Prerequisites
 
-- Node.js 16+ and npm/yarn/pnpm
+- Node.js 20.19+, 22.13+, or 24+ and npm/yarn/pnpm
 - No API key needed! This app uses the free Open-Meteo API
 
 ## Setup Instructions
